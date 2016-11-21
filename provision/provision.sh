@@ -1,12 +1,12 @@
 #!/bin/bash
 # ------------------------------------------------------------------------------
-# Provisioning script for the docker-laravel web server stack
+# Provisioning script for the docker-base image
 # ------------------------------------------------------------------------------
 
 apt-get update
 
 # -----------------------------------------------------------------------------
-# curl
+# Curl
 # ------------------------------------------------------------------------------
 
 apt-get -y install curl
@@ -16,7 +16,8 @@ apt-get -y install curl
 # ------------------------------------------------------------------------------
 
 # install python (required for supervisor)
-apt-get -y install python
+apt-get -y install python python-pip
+pip install --upgrade pip
 
 # directories and conf files
 mkdir -p /etc/supervisord/
@@ -25,5 +26,4 @@ cp /provision/conf/supervisor.conf /etc/supervisord.conf
 cp /provision/service/* /etc/supervisord/
 
 # install
-curl https://bootstrap.pypa.io/ez_setup.py -o - | python
-easy_install supervisor
+pip install supervisor
