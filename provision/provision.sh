@@ -15,7 +15,7 @@ apt-get -y install curl
 # Supervisor
 # ------------------------------------------------------------------------------
 
-# install python (required for supervisor)
+# install python (required for Supervisor)
 apt-get -y install python python-pip
 pip install --upgrade pip
 
@@ -32,6 +32,7 @@ pip install supervisor
 # ------------------------------------------------------------------------------
 
 apt-get -y install cron
+cp /provision/service/cron.conf /etc/supervisord/cron.conf
 
 # ------------------------------------------------------------------------------
 # Nano
