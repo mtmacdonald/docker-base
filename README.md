@@ -12,8 +12,10 @@ This is a base Docker image for building other images. Contains:
 - [Git](https://git-scm.com/) version control
 
 Container also:
+- runs cron as service
 - sets locale (en_US.UTF-8 to support UTF-8)
 - installs and sets unattended-upgrades (automatic security patches)
+- fixes 'Error opening terminal: unknown' in [docker exec](https://github.com/docker/docker/issues/9299) for older Docker versions
 
 Running a container
 -------------------
