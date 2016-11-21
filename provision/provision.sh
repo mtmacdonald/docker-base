@@ -23,7 +23,6 @@ pip install --upgrade pip
 mkdir -p /etc/supervisord/
 mkdir /var/log/supervisor
 cp /provision/conf/supervisor.conf /etc/supervisord.conf
-cp /provision/service/* /etc/supervisord/
 
 # install
 pip install supervisor
@@ -39,6 +38,18 @@ apt-get -y install cron
 # ------------------------------------------------------------------------------
 
 apt-get -y install nano
+
+# Fix 'Error opening terminal: unknown' in docker exec for older Docker versions
+# askubuntu.com/questions/736101
+# https://github.com/docker/docker/issues/9299
+# http://stackoverflow.com/questions/27826241
+echo 'export TERM=xterm' >> /etc/bash.bashrc
+
+# ------------------------------------------------------------------------------
+# Zip and unzip
+# ------------------------------------------------------------------------------
+
+apt-get -y zip unzip
 
 # ------------------------------------------------------------------------------
 # Git version control
