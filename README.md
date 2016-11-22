@@ -10,9 +10,10 @@ This is a base Docker image for building other images. Contains:
 - Nano text editor
 - [Curl](https://curl.haxx.se)
 - [Git](https://git-scm.com/) version control
+- Zip and unzip
 
 Container also:
-- runs cron as service
+- runs cron as a supervised service
 - sets locale (en_US.UTF-8 to support UTF-8)
 - installs and sets unattended-upgrades (automatic security patches)
 - fixes 'Error opening terminal: unknown' in [docker exec](https://github.com/docker/docker/issues/9299) for older Docker versions
@@ -25,18 +26,18 @@ images on top of the base packages.*
 
 **1.** Download the public Docker image from Dockerhub:
 
-	docker pull mtmacdonald/docker-base:version
+  	 docker pull mtmacdonald/docker-base:version
 
 **2.** Run the Docker image as a new Docker container:
 
-  docker run -d --restart=always --name=appname mtmacdonald/docker-base:version
+  	 docker run -d --restart=always --name=appname mtmacdonald/docker-base:version
 
 Get a terminal in a running container
 -------------------------------------
 
 **1.** Use docker exec to get a terminal in an already running container:
 
-  docker exec -it appname bash
+    docker exec -it appname bash
 
 Process supervision
 -------------------
@@ -45,7 +46,7 @@ Process supervision
 
 **1.** To inspect status and manually manage services:
 
-  supervisorctl
+    supervisorctl
 
 **2.** To add new services, add configuration files to */etc/supervisord*
 
