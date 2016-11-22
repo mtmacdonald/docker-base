@@ -50,7 +50,7 @@ echo 'export TERM=xterm' >> /etc/bash.bashrc
 # Zip and unzip
 # ------------------------------------------------------------------------------
 
-apt-get -y zip unzip
+apt-get -y install zip unzip
 
 # ------------------------------------------------------------------------------
 # Git version control
